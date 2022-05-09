@@ -7,20 +7,19 @@ import java.util.Scanner;
 
 public class program {
 
-	public static void main(String[] args) throws ParseException{
+	public static void main(String[] args) {
 	Scanner scan = new Scanner(System.in);
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-	System.out.println("Enter number");
-	int number = scan.nextInt();
-	System.out.println("Enter Check-in date (dd/MM/yyyy)");
-	Date checkin = sdf.parse(scan.next());
-	System.out.println("Enter Check-out date (dd/MM/yyyy)");
-	Date checkout = sdf.parse(scan.next());
 	
-	if(!checkout.after(checkin)) { //verifica se a data e posterior
-		System.out.println("Error in reservation: Check-out data must be after check-in data");
-	}else {
+	try {
+		System.out.println("Enter number");
+		int number = scan.nextInt();
+		System.out.println("Enter Check-in date (dd/MM/yyyy)");
+		Date checkin = sdf.parse(scan.next());
+		System.out.println("Enter Check-out date (dd/MM/yyyy)");
+		Date checkout = sdf.parse(scan.next());
+
 		Reservetion reservetion = new Reservetion(number, checkin, checkout);
 		System.out.println("Reservetion: + " +reservetion);
 		
@@ -30,18 +29,15 @@ public class program {
 		 checkin = sdf.parse(scan.next());
 		System.out.println("Enter Check-out date (dd/MM/yyyy)");
 		checkin = sdf.parse(scan.next());
-		 
-		String error = reservetion.updateDate(checkin, checkout);
-		if(error!=null) {
-			System.out.println("Error in reservation: "+error);
-		}else {
-			System.out.println("Reservation: " +reservetion);
-		}
+		System.out.println("Reservation: " +reservetion);
+	}
+	catch(ParseException e) {
+		System.out.println("Invalid date format");
+	}
+		
 	}
 	
 	
 	
-	
-	}
 
 }
