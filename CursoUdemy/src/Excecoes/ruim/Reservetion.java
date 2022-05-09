@@ -32,9 +32,17 @@ private Integer numQuarto;
 	 long diff = saida.getTime() - entrada.getTime();  // diferenca e milissegundos
 	return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS); // CONVERTE DE milisegundos para dias
  }
-	public void updateDate(Date entrada, Date saida) {
-		this.entrada=entrada;
-		this.saida=saida;
+	public String updateDate(Date checkin, Date checkout) {
+		 Date now = new Date();
+		 if (checkin.before(now) || checkout.before(now)) {
+			return "Erro: in reservation: reservaion dates for updates be future dates";
+		 }
+		 if(!checkout.after(checkin)) {
+			return "Error in reservation: Check-out data must be after check-in data";
+		 }
+		this.entrada=checkin;
+		this.saida=checkout;
+		return null;
 	}
 	
 	@Override
