@@ -34,7 +34,9 @@ public class program {
 	catch(ParseException e) {
 		System.out.println("Invalid date format");
 	}
-		
+	catch (IllegalArgumentException e) {
+		System.out.println("Error reservation " +e.getMessage());
+	}
 	}
 	
 	
