@@ -23,6 +23,23 @@ public class program {
 	}else {
 		Reservetion reservetion = new Reservetion(number, checkin, checkout);
 		System.out.println("Reservetion: + " +reservetion);
+		
+		System.out.println();
+		System.out.println("Enter date to update the reservation");
+		System.out.println("Enter Check-in date (dd/MM/yyyy)");
+		 checkin = sdf.parse(scan.next());
+		System.out.println("Enter Check-out date (dd/MM/yyyy)");
+		checkout = sdf.parse(scan.next());
+		 
+		 Date now = new Date();
+		 if (checkin.before(now) || checkout.before(now)) {
+			 System.out.println("Erro: in reservation:");
+		 }else if(!checkout.after(checkin)) {
+			 System.out.println("Error in reservation: Check-out data must be after check-in data");
+		 }else {
+			 reservetion.updateDate(checkin, checkout);
+			 System.out.println("Reservetion: + " +reservetion);
+		 }
 	}
 	
 	

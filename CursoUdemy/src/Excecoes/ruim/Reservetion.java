@@ -32,7 +32,7 @@ private Integer numQuarto;
 	 long diff = saida.getTime() - entrada.getTime();  // diferenca e milissegundos
 	return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS); // CONVERTE DE milisegundos para dias
  }
-	public void atualizarData(Date entrada, Date saida) {
+	public void updateDate(Date entrada, Date saida) {
 		this.entrada=entrada;
 		this.saida=saida;
 	}
