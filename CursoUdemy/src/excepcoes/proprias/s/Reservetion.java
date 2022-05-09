@@ -11,7 +11,7 @@ public class Reservetion {
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	
 	// construtor
-	public Reservetion(Integer numQuarto, Date entrada, Date saida) throws DomainException {
+	public Reservetion(Integer numQuarto, Date entrada, Date saida)  {
 		if(!saida.after(entrada)) {
 			 throw new DomainException("Error in reservation: Check-out data must be after check-in data");
 		 }
@@ -41,7 +41,7 @@ public class Reservetion {
 	}
 	
 	
-	public void updateDate(Date checkin, Date checkout)throws DomainException{
+	public void updateDate(Date checkin, Date checkout){
 		 Date now = new Date();
 		 if (checkin.before(now) || checkout.before(now)) {
 			throw new DomainException("Erro: in reservation: reservaion dates for updates be future dates");
