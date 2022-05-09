@@ -32,7 +32,7 @@ private Integer numQuarto;
 	 long diff = saida.getTime() - entrada.getTime();  // diferenca e milissegundos
 	return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS); // CONVERTE DE milisegundos para dias
  }
-	public String updateDate(Date checkin, Date checkout) {
+	public void updateDate(Date checkin, Date checkout) {
 		 Date now = new Date();
 		 if (checkin.before(now) || checkout.before(now)) {
 			return "Erro: in reservation: reservaion dates for updates be future dates";
