@@ -29,7 +29,7 @@ private Integer numQuarto;
 	}
 	
  public long duracao() {
-	 long diff = saida.getTime() - entrada.getTime();  // diferenca e milissegundos
+	 long diff = saida.getTime() - entrada.getTime();  // diferenca em milissegundos
 	return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS); // CONVERTE DE milisegundos para dias
  }
 	public void updateDate(Date checkin, Date checkout) {
