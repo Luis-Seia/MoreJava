@@ -1,6 +1,6 @@
    package generics.program1.entitieis;
 
-public class Product {
+public class Product implements Comparable<Product>{
 	private String name;
 	private Double price;
 	public Product(String name, Double price) {
@@ -22,6 +22,11 @@ public class Product {
 	@Override
 	public String toString() {
 		return "product [name=" + name + ", price=" + String.format("%.2f", price) + "]";
+	}
+	@Override
+	public int compareTo(Product other) {
+	
+		return price.compareTo(other.price);
 	}
 	
 	
