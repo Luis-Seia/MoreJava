@@ -25,15 +25,13 @@ public class aplication {
 				productCsv = br.readLine();
 			}
 			Product x = CalculetionService.max(list);
-			for(Employee emp: list) {
-				System.out.println(emp.getName() + ","+ emp.getSalary());
-			}
+		
 		}catch(IOException e) {
 			System.out.println("Error: " +e.getMessage());
 		}
 
 	}
 
-	}
+	
 
 }

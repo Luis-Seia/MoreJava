@@ -2,10 +2,8 @@ package generics.program1.services;
 
 import java.util.List;
 
-import generics.program1.entitieis.Product;
-
 public class CalculetionService {
-	public static <T extends Comparable<T>> T max(List<T> list) {
+	public static <T extends Comparable<? super T>> T max(List<T> list) {
 		if (list.isEmpty()) {
 			throw new IllegalStateException("");
 		}
